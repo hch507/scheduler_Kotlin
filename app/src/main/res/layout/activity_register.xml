@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/backgroundlayout"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="회원가입"
+                android:textColor="#ffffff"
+                android:textSize="30dp"
+                android:fontFamily="@font/mabinogi_classic_ttf"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="50dp"
+                android:layout_gravity="center"
+                >
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/idText"
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:hint="아이디"
+                    android:inputType="text"
+                    android:maxLength="12"
+                    android:minHeight="48dp"
+                    android:drawableStart="@drawable/ic_baseline_person_24"
+                    />
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/validateButton"
+                    app:rippleColor="@color/coloPrimary"
+                    android:text="즁복체크"
+                    style="?attr/materialButtonOutlinedStyle"
+                    tools:ignore="SpeakableTextPresentCheck"
+                    app:strokeColor="@color/coloPrimary"
+                    app:icon="@drawable/ic_baseline_check_24"
+                    android:layout_gravity="center"
+                    android:textColor="@color/coloPrimary"
+                    />
+
+            </LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:counterEnabled="true"
+                app:counterMaxLength="12"
+                app:helperText="12자리 이하 입력"
+                app:endIconMode="clear_text"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passwordText"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:drawableStart="@drawable/ic_baseline_https_24"
+                    android:hint="비밀번호"
+                    android:maxLength="12"
+                    android:minHeight="48dp"
+                    android:inputType="textPassword"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameText"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:hint="이름"
+                android:layout_gravity="center"
+                android:inputType="text"
+                android:maxLength="12"
+                android:minHeight="48dp"
+                android:drawableStart="@drawable/ic_baseline_edit_24"
+                />
+
+            <RadioGroup
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/genderGroup"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="여성"
+                    android:id="@+id/genderWoman"
+                    android:layout_weight="1"
+                    android:checked="true"/>
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="남성"
+                    android:id="@+id/genderMan"
+                    android:layout_weight="1"/>
+            </RadioGroup>
+
+            <Spinner
+                android:id="@+id/gradeSpiner"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"></Spinner>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/registerButton"
+                android:text="가입하기"
+                app:cornerRadius="100dp"
+                tools:ignore="SpeakableTextPresentCheck"
+                android:backgroundTint="@color/purple_200"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
