@@ -2,13 +2,14 @@ package com.example.termproject2
 
 import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
+import android.util.Log
+
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
+
 import com.example.termproject2.databinding.ActivityLoginBinding
+import com.example.termproject2.model.loginModel
+
+import com.example.termproject2.retrofit.Manager
 
 class LoginActivity : AppCompatActivity() {
 
@@ -19,14 +20,25 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        Log.d("hch", "LoginActivity - onCreate() - called")
+        var userID = binding.idText.text.toString()
+        var userPW = binding.passwordText.text.toString()
+        var userInfo = loginModel(userID, userPW)
+        binding.loginButton.setOnClickListener{
+            Manager.instance.loginRequest(userInfo, completion = {
+                responseState, s ->
+                when(responseState){
+                    com.example.termproject2.utils.responseState.Okay -> {
+                        Log.d("hch", "LoginActivity - onCreate() - called ${s}")
 
-        binding.registerButton.setOnClickListener{
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
+                    }
+                    else -> {
+                        Log.d("hch", "LoginActivity - onCreate() - called")
+                    }
+                }
+            })
         }
-        binding.loginButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+        binding.registerButton.setOnClickListener {
 
         }
         }
