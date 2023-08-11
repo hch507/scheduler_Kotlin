@@ -21,14 +21,17 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         Log.d("hch", "LoginActivity - onCreate() - called")
-        var userID = binding.idText.text.toString()
-        var userPW = binding.passwordText.text.toString()
-        var userInfo = loginModel(userID, userPW)
+
         binding.loginButton.setOnClickListener{
-            Manager.instance.loginRequest(userInfo, completion = {
+            var userID = binding.idText.text.toString()
+            var userPW = binding.passwordText.text.toString()
+
+
+            Manager.instance.loginRequest(userID,userPW, completion = {
                 responseState, s ->
                 when(responseState){
                     com.example.termproject2.utils.responseState.Okay -> {
+
                         Log.d("hch", "LoginActivity - onCreate() - called ${s}")
 
                     }
@@ -39,7 +42,8 @@ class LoginActivity : AppCompatActivity() {
             })
         }
         binding.registerButton.setOnClickListener {
-
+            val intent= Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
         }
         }
 }
